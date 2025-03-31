@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排球少年 - 首页</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            /* 修改背景颜色为更自然且辨识度高的淡蓝色 */
+            background-color: #e5f6ff; 
+            background-image: url('https://www.transparenttextures.com/patterns/light-wool.png');
+            /* 整体字体大小增大 */
+            font-size: 18px; 
+        }
+
+        /* 头部样式 */
+        header {
+            /* 修改头部背景颜色，与整体风格协调 */
+            background-color: #FF6B6B; 
+            background-image: url('https://via.placeholder.com/1920x300');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px; /* 增加头部内边距 */
+            font-family: "STXingkai", "KaiTi", cursive;
+            -webkit-text-stroke: 1px #000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: headerAnimation 5s infinite alternate;
+        }
+
+        @keyframes headerAnimation {
+            0% {
+                background-color: #FF6B6B;
+                transform: scale(1);
+            }
+            100% {
+                /* 修改动画结束时的背景颜色，与整体风格协调 */
+                background-color: #FFA07A; 
+                transform: scale(1.05);
+            }
+        }
+
+        /* 导航栏样式 */
+        nav {
+            /* 修改导航栏背景颜色，与整体风格协调 */
+            background-color: #FF6B6B; 
+            color: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 20px 0;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #FFD166;
+            transform: scale(1.1);
+            border-bottom: 2px solid #FFD166;
+        }
+
+        /* 主内容区域样式 */
+        main {
+            padding: 80px 60px; /* 增加主内容区域内边距 */
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* 标题样式 */
+        h2 {
+            color: #FF6B6B;
+            margin-bottom: 25px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+            border-bottom: 3px solid #FF6B6B;
+            padding-bottom: 15px;
+            /* 增大标题字体大小 */
+            font-size: 32px; 
+        }
+
+        /* 角色卡片样式 */
+       .character-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin: 80px 0; /* 增加角色卡片上下外边距 */
+            padding: 50px; /* 增加角色卡片内边距 */
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+            animation: cardAnimation 3s infinite alternate;
+        }
+
+        @keyframes cardAnimation {
+            0% {
+                transform: translateY(0);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            100% {
+                transform: translateY(-15px);
+                box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+       .character-card:hover {
+            transform: translateY(-10px);
+        }
+
+       .character-card img {
+            width: 300px; /* 增大角色图片宽度 */
+            height: 300px; /* 增大角色图片高度 */
+            object-fit: cover;
+            border-radius: 15px;
+            margin-right: 50px; /* 增加角色图片右边距 */
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+       .character-card img:hover {
+            transform: scale(1.15);
+        }
+
+       .character-info h3 {
+            margin-top: 0;
+            /* 增大角色名字字体大小 */
+            font-size: 36px; 
+            margin-bottom: 20px; /* 增加角色名字底部外边距 */
+        }
+
+       .character-info p {
+            /* 增大角色介绍字体大小 */
+            font-size: 22px; 
+            line-height: 2; /* 增加角色介绍行高 */
+        }
+
+        /* 视频区域样式 */
+       .video-section {
+            margin-top: 80px; /* 增加视频区域顶部外边距 */
+            text-align: center;
+        }
+
+        /* 视频样式 */
+        video {
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 90%; /* 增大视频宽度 */
+            max-width: 1000px;
+            height: auto;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 40px; /* 增加页脚内边距 */
+        }
+
+        /* 新增：章节分割线样式 */
+       .section-divider {
+            border: none;
+            border-top: 2px solid #ccc;
+            margin: 80px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <h1>排球少年 - 热血青春排球之旅</h1>
+    </header>
+
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="#">首页</a></li>
+            <li><a href="#about">关于作品</a></li>
+            <li><a href="#highlights">精彩看点</a></li>
+            <li><a href="#contact">联系我们</a></li>
+        </ul>
+    </nav>
+
+    <!-- 主内容区域 -->
+    <main>
+        <!-- 简介部分 -->
+        <section id="about">
+            <h2>《排球少年》简介</h2>
+            <p>《排球少年！》是日本漫画家古馆春一创作的少年漫画作品。故事围绕着热爱排球的少年日向翔阳展开，他因受到电视上“小巨人”的影响而爱上排球。尽管身材矮小，在排球上却有着惊人的天赋和热情。日向翔阳进入乌野高中后，与队友们一起努力训练，参加各种比赛，在排球的道路上不断成长和挑战自我。这部作品不仅展现了排球运动的魅力，更传达了友情、努力和梦想的重要性。</p>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- 主要看点部分 -->
+        <section id="highlights">
+            <h2>精彩看点</h2>
+            <!-- 角色介绍 -->
+            <h3>主要人物</h3>
+            <!-- 日向翔阳 -->
+            <div class="character-card">
+                <!-- 替换为实际的日向翔阳图片路径 -->
+                <img src="C:\Users\刘轩\Desktop\20161214200228_fMr23.png" alt="日向翔阳">
+                <div class="character-info">
+                    <h3>日向翔阳</h3>
+                    <p>本作主角，身材矮小但弹跳力惊人，对排球充满热情和执着。他的目标是成为像“小巨人”一样的排球选手。日向翔阳凭借着顽强的毅力和永不放弃的精神，在球场上不断创造奇迹，是团队中的核心力量。</p>
+                </div>
+            </div>
+            <!-- 影山飞雄 -->
+            <div class="character-card">
+                <!-- 替换为实际的影山飞雄图片路径 -->
+                <img src="C:\Users\刘轩\Desktop\20201107170236_60f8b.jpg" alt="影山飞雄">
+                <div class="character-info">
+                    <h3>影山飞雄</h3>
+                    <p>天才二传手，技术高超但性格傲娇。与日向翔阳组成了“快攻搭档”，在比赛中发挥着重要作用。影山飞雄在与队友的磨合过程中逐渐改变了自己的性格，学会了团队合作的重要性。</p>
+                </div>
+            </div>
+            <!-- 新增：西谷夕 -->
+            <div class="character-card">
+                <!-- 替换为实际的西谷夕图片路径 -->
+                <img src="C:\Users\刘轩\Desktop\20180820195407_mS48R.png" alt="西谷夕">
+                <div class="character-info">
+                    <h3>西谷夕</h3>
+                    <p>乌野高中排球部的自由人，防守能力出色，性格开朗活泼，是团队中的气氛担当。他的存在为球队带来了许多欢乐和动力。</p>
+                </div>
+            </div>
+            <!-- 新增：月岛萤 -->
+            <div class="character-card">
+                <!-- 替换为实际的月岛萤图片路径 -->
+                <img src="C:\Users\刘轩\Desktop\20210829104523_b0510.jpg" alt="月岛萤">
+                <div class="character-info">
+                    <h3>月岛萤</h3>
+                    <p>身高腿长的副攻手，虽然性格有些毒舌，但实力不容小觑。他在比赛中常常能够凭借出色的拦网和扣球技术为球队得分。</p>
+                </div>
+            </div>
+
+            <!-- 精彩瞬间视频部分 -->
+            <h3>精彩瞬间</h3>
+            <div class="video-section">
+                <div class="video-container">
+                    <!-- 新增的哔哩哔哩视频嵌入代码 -->
+                    <iframe src="https://player.bilibili.com/player.html?bvid=BV1k44y167m9&page=1&as_wide=1&high_quality=1&danmaku=0" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 90%; max-width: 1000px; height: 500px; margin-top: 20px;"> </iframe>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- 联系我们部分 -->
+        <section id="contact">
+            <h2>联系我们</h2>
+            <p>如果您有任何问题或建议，请随时联系我们。我们非常重视您的反馈，期待与您交流！</p>
+            <form>
+                <label for="name">姓名:</label>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">邮箱:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">留言:</label>
+                <textarea id="message" name="message" required></textarea><br>
+                <input type="submit" value="提交">
+            </form>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>版权所有 &copy; 2025 《排球少年》主题网站</p>
+    </footer>
+</body>
+</html>
+
