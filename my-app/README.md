@@ -1,24 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 课程作业集成平台
 
-## Getting Started
+## 功能特性
+- ✅ WakaTime编码时长统计
+- 📚 课程练习导航系统
+- ❓ QAnything问答服务集成
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## QAnything集成实现
+采用基础路径实现方案：
+```javascript
+// 通过iframe嵌入现有问答页面
+<iframe src="YOUR_QANYTHING_URL" className="w-full h-screen" />
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## WakaTime配置指南
+1. 注册WakaTime账号
+2. 获取API Key
+3. 创建`.env.local`文件：
+```env
+NEXT_PUBLIC_WAKATIME_API_KEY=your_api_key_here
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 项目结构
+```
+my-app/
+├── app/
+│   ├── exercises/      # 课程练习导航
+│   ├── qanything/      # 问答服务
+│   └── layout.js       # 全局布局
+├── components/
+│   └── Footer.js       # 页脚统计
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 运行指南
+```bash
+npm install
+npm run dev
+```
 
 ## Learn More
 
