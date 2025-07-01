@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排球少年 - 热血排球之旅</title>
+    <style>
+        /* 全局样式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* 头部样式 */
+        header {
+            background-color: #FF5722;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* 导航栏样式 */
+        nav {
+            background-color: #333;
+            color: white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+            transition: border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        /* 主内容区域样式 */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 章节标题样式 */
+        h2 {
+            color: #FF5722;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        /* 角色卡片样式 */
+       .character-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            width: 80%;
+            height: auto;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+            border-left: 5px solid #FF5722; /* 增加侧边颜色条 */
+        }
+
+       .character-card:hover {
+            transform: scale(1.05);
+        }
+
+       .character-card img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 3px solid #FF5722;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+       .character-card h3 {
+            margin: 0;
+            color: #333;
+        }
+
+       .character-card p {
+            color: #666;
+        }
+
+        /* 新增的盒模型元素样式 */
+       .box-model-element {
+            background-color: #e9e9e9;
+            border: 2px dashed #999;
+            padding: 20px;
+            margin: 20px 0;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header>
+        <h1>排球少年 - 热血排球之旅</h1>
+    </header>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="volleyball_boy.html">首页</a></li>
+            <li><a href="character_introduction.html">角色介绍</a></li>
+            <li><a href="wonderful_moments.html">精彩瞬间</a></li>
+            <li><a href="related_merchandise.html">相关周边</a></li>
+        </ul>
+    </nav>
+    <!-- 主内容区域 -->
+    <main>
+        <section>
+            <h2>作品简介</h2>
+            <p>《排球少年！》（ハイキュー！）是日本漫画家古馆春一创作的少年漫画作品。故事讲述了热爱排球的日向翔阳，因憧憬着排球名将“小巨人”而开始接触排球。尽管身高不高，但他凭借着顽强的毅力和对排球的热爱，加入了学校的排球部，与队友们一起在排球赛场上拼搏，向着全国大赛的目标前进。</p>
+        </section>
+        <!-- 新增的盒模型元素 -->
+        <div class="box-model-element">
+            <h3>排球少年的热血精神</h3>
+            <p>他们在赛场上展现出的拼搏、团结和坚持，正是排球精神的体现。</p>
+        </div>
+        <section>
+            <h2>主要角色</h2>
+            <div class="character-card">
+                <!-- 替换为真实图片链接 -->
+                <img src="C:\Users\刘轩\Desktop\20161214200228_fMr23.png" alt="日向翔阳">
+                <div>
+                    <h3>日向翔阳</h3>
+                    <p>身高不高却充满激情和活力，拥有惊人的跳跃力和速度，是球队中的得分利器。他凭借着对排球的热爱和不懈的努力，不断突破自我，在比赛中常常创造出令人惊叹的得分机会。</p>
+                </div>
+            </div>
+            <div class="character-card">
+                <!-- 替换为真实图片链接 -->
+                <img src="C:\Users\刘轩\Desktop\20201107170236_60f8b.jpg" alt="影山飞雄">
+                <div>
+                    <h3>影山飞雄</h3>
+                    <p>技术精湛的二传手，拥有强大的传球能力，但性格有些孤傲，后来与日向翔阳成为了默契的搭档。他的传球精准而有力，能够根据不同队友的特点和场上形势做出最恰当的传球，是球队进攻的核心。</p>
+                </div>
+            </div>
+            <!-- 删除菅原孝支的内容 -->
+            <!-- 删除东峰旭的内容 -->
+            <div class="character-card">
+                <!-- 替换为真实图片链接 -->
+                <img src="C:\Users\刘轩\Desktop\20180820195407_mS48R.png" alt="西谷夕">
+                <div>
+                    <h3>西谷夕</h3>
+                    <p>球队的自由人，防守能力出色，性格活泼开朗，是球队气氛担当。他在后排的防守如同铜墙铁壁，能够及时救起对方的扣球，为球队争取更多的进攻机会。同时，他的活泼性格也为球队带来了轻松愉快的氛围。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 排球少年主题页面</p>
+    </footer>
+</body>
+
+</html>

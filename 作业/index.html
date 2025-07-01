@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简单的 JavaScript 示例</title>
+</head>
+
+<body>
+    <!-- 这里将显示欢迎消息 -->
+    <p id="message"></p>
+
+    <script>
+        // 提示用户输入姓名
+        const userName = prompt('请输入你的姓名：');
+
+        // 检查用户是否输入了姓名
+        if (userName) {
+            // 如果输入了姓名，创建欢迎消息
+            const welcomeMessage = `欢迎，${userName}！很高兴见到你。`;
+            // 获取 HTML 元素
+            const messageElement = document.getElementById('message');
+            // 将欢迎消息显示在页面上
+            messageElement.textContent = welcomeMessage;
+        } else {
+            // 如果用户没有输入姓名，显示默认消息
+            const defaultMessage = '你没有输入姓名。请刷新页面再试一次。';
+            const messageElement = document.getElementById('message');
+            messageElement.textContent = defaultMessage;
+        }
+    </script>
+</body>
+
+</html>

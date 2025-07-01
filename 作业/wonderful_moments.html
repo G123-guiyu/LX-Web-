@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>排球少年 - 精彩瞬间</title>
+    <style>
+        /* 复用样式 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #FF5722;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            background-color: #333;
+            color: white;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 0;
+            display: block;
+            transition: border-bottom 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        h2 {
+            color: #FF5722;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 40px;
+        }
+
+        /* 视频容器样式 */
+       .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 宽高比 */
+        }
+
+       .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 头部 -->
+    <header>
+        <h1>排球少年 - 精彩瞬间</h1>
+    </header>
+    <!-- 导航栏 -->
+    <nav>
+        <ul>
+            <li><a href="volleyball_boy.html">首页</a></li>
+            <li><a href="character_introduction.html">角色介绍</a></li>
+            <li><a href="wonderful_moments.html">精彩瞬间</a></li>
+            <li><a href="related_merchandise.html">相关周边</a></li>
+        </ul>
+    </nav>
+    <!-- 主内容区域 -->
+    <main>
+        <div class="video-container">
+            <iframe src="https://player.bilibili.com/player.html?bvid=BV1k44y167m9&page=1&as_wide=1&high_quality=1&danmaku=0"
+                scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+            </iframe>
+        </div>
+    </main>
+    <!-- 页脚 -->
+    <footer>
+        <p>&copy; 2024 排球少年主题页面</p>
+    </footer>
+</body>
+
+</html>

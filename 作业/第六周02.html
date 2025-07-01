@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 语法</title>
+    <style>
+  :root {
+    --primary: #2196f3;
+    --secondary: #ff4081;
+    --surface: #f8f9fa;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 20px;
+  }
+
+  .card {
+    background: var(--surface);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    box-shadow: 
+      0 1px 3px rgba(0,0,0,0.12),
+      0 20px 40px -10px rgba(var(--primary),0.1);
+    transition: all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  }
+
+  .card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 25px 50px -12px rgba(var(--primary),0.25);
+  }
+
+  .gradient-text {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2.5rem;
+    text-align: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  @keyframes sparkle {
+    0% { opacity: 0; transform: scale(0); }
+    50% { opacity: 1; }
+    100% { opacity: 0; transform: scale(2); }
+  }
+
+  .sparkle {
+    position: absolute;
+    background: radial-gradient(circle, white 20%, transparent 70%);
+    width: 10px;
+    height: 10px;
+    animation: sparkle 0.8s ease-out;
+  }
+</style>
+<script>
+        // 类和对象
+        class Car {
+            constructor(brand, model, year) {
+                this.brand = brand
+                this.model = model
+                this.year = year
+            }
+            start() {
+                console.log(`汽车 ${this.brand} ${this.model} 启动了`)
+            }
+            stop() {
+                console.log(`汽车 ${this.brand} ${this.model} 停止了`)
+            }
+        }
+        let myCar = new Car('Mi', 'Yu7', 2025)
+        myCar.start()
+        myCar.stop()
+
+        class ElectricCar extends Car {
+            constructor(brand, model, year, range) {
+                super(brand, model, year)
+                this.range = range
+            }
+            charge() {
+                console.log(`电动汽车 ${this.brand} ${this.model} 正在充电`)
+            }
+        }
+        let myElectricCar = new ElectricCar('Tesla', 'Model Y', 2025, 300)
+        myElectricCar.start()
+        myElectricCar.charge()
+
+        // 回调函数练习
+        console.log('111111')
+
+        setTimeout(function () {
+            console.log('22222')
+        }, 2000)
+
+        console.log('333333')
+    </script>
+</head>
+
+<body>
+  <div class="app-container">
+    <div class="hero-card">
+      <h1 class="dynamic-header" onclick="animateHeader(event)">
+        <span class="icon">🚘</span>汽车模拟系统
+        <div class="particle-layer"></div>
+      </h1>
+      <p class="subtitle">点击交互元素体验动态效果</p>
+    </header>
+    <main class="content-grid">
+  <canvas class="global-particles"></canvas>
+
+<script>
+    myDom = document.getElementById('demo')
+    console.log(myDom)
+    myDom.innerHTML = '这是从脚本动态更改的内容'
+    function animateHeader(e) {
+  const x = e.pageX;
+  const y = e.pageY;
+  Array(15).fill().forEach((_,i) => {
+    const spark = document.createElement('div');
+    spark.className = 'sparkle';
+    spark.style.left = (x -5 + Math.random()*20) + 'px';
+    spark.style.top = (y -5 + Math.random()*20) + 'px';
+    document.querySelector('.sparkle-container').appendChild(spark);
+  });
+}
+
+myDom.onclick = function () {
+        alert('我也被点击了！')
+    }
+</script>
+
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</body>
+</html>
