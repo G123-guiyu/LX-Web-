@@ -1,0 +1,87 @@
+// ... existing code ...
+    <section>
+      <h2>动画</h2>
+      <p>在 CSS 里，动画必须要有起始状态、结束状态和时长。下面为你详细展示不同类型的 CSS 动画。</p>
+      
+      <!-- 滑动动画示例 -->
+      <h3>滑动动画</h3>
+      <p>此动画能让元素从一个位置滑动到另一个位置。</p>
+      <style>
+        @keyframes slide {
+          0% {
+            transform: translateX(0);
+            background-color: rgb(192, 184, 184);
+          }
+          100% {
+            transform: translateX(200px);
+            background-color: rgb(190, 21, 21);
+          }
+        }
+        .animate-slide {
+          width: 100px;
+          height: 100px;
+          text-align: center;
+          line-height: 100px;
+          margin-top: 2em;
+          border-radius: 0;
+          background-color: rgb(192, 184, 184);
+          animation: slide 2s infinite alternate;
+        }
+      </style>
+      <div class="animate-slide">滑动动画内容</div>
+
+      <!-- 缩放动画示例 -->
+      <h3>缩放动画</h3>
+      <p>该动画可使元素在大小上进行缩放。</p>
+      <style>
+        @keyframes scale {
+          0% {
+            transform: scale(1);
+            background-color: lightblue;
+          }
+          50% {
+            transform: scale(1.5);
+            background-color: lightgreen;
+          }
+          100% {
+            transform: scale(1);
+            background-color: lightblue;
+          }
+        }
+        .animate-scale {
+          width: 100px;
+          height: 100px;
+          text-align: center;
+          line-height: 100px;
+          margin-top: 2em;
+          border-radius: 0;
+          background-color: lightblue;
+          animation: scale 3s infinite;
+        }
+      </style>
+      <div class="animate-scale">缩放动画内容</div>
+
+      <!-- 原有的动画样式和元素 -->
+      <h3>悬停动画</h3>
+      <p>当鼠标悬停在元素上时，会触发此动画。</p>
+      <style>
+        .animate-box {
+          width: 100px;
+          height: 100px;
+          background-color: rgb(192, 184, 184);
+          text-align: center;
+          line-height: 100px;
+          margin-top: 2em;
+          border-radius: 0;
+        }
+        .animate-box:hover {
+          border-radius: 100px;
+          color: white;
+          background-color: rgb(190, 21, 21);
+          transition: all 0.3s;
+        }
+      </style>
+      <div class="animate-box">盒模型内容</div>
+    </section>
+  </body>
+</html>
