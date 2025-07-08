@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 异步编程练习</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
+    
+    :root {
+        --gradient-start: #ff9a9e;
+        --gradient-end: #fad0c4;
+        --glass-bg: rgba(255, 255, 255, 0.15);
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+        font-family: 'Ma Shan Zheng', cursive;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sakura {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: rgba(255, 192, 203, 0.7);
+        border-radius: 50%;
+        pointer-events: none;
+        animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(-100vh) rotate(0deg); }
+        100% { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+        padding: 2rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        margin: 2rem auto;
+        max-width: 600px;
+        transition: transform 0.3s ease;
+    }
+
+    h1 {
+        color: #fff;
+        text-align: center;
+        font-size: 2.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1.5s ease-out;
+    }
+
+    #demo {
+        color: #fff;
+        font-size: 1.2rem;
+        text-align: center;
+        padding: 1.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        transition: all 0.3s ease;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+</head>
+
+<body>
+    <h1>JavaScript 异步编程练习</h1>
+    <div class="glass-card">
+        <div id="demo">
+
+    </div>
+    </div>
+    <script>
+        async function getSomething() {
+            await setTimeout(function () {
+                console.log('111111')
+            }, 2000)
+        }
+        getSomething()
+            .then(
+                result => console.log('Async function finished successfully with result:', result)
+            )
+        console.log('2222222')
+        // ... existing code ...
+        async function getLastPushedDate(owner, repo) {
+            const url = `https://api.github.com/repos/${owner}/${repo}`;
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('网络响应失败');
+                }
+                const data = await response.json();
+                // pushed_at 字段即为最后一次推送日期
+                return data.pushed_at;
+            } catch (error) {
+                console.error('获取推送日期失败:', error);
+                return null;
+            }
+        }
+
+        // 示例调用
+        getLastPushedDate('G123-guiyu', 'LX-Web-').then(date => {
+            console.log('最后一次推送日期:', date);
+            document.getElementById('demo').innerText = '最后一次推送日期: ' + date;
+        });
+        // ... existing code ...
+
+    </script>
+<script>
+    // 樱花飘落效果
+    function createSakura() {
+        const sakura = document.createElement('div');
+        sakura.className = 'sakura';
+        sakura.style.left = Math.random() * 100 + 'vw';
+        sakura.style.animationDuration = Math.random() * 3 + 2 + 's';
+        document.body.appendChild(sakura);
+
+        sakura.addEventListener('animationend', () => {
+            sakura.remove();
+        });
+    }
+
+    setInterval(createSakura, 300);
+</script>
+</body>
+
+</html>

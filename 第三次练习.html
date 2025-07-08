@@ -1,0 +1,192 @@
+// ... existing code ...
+<section id="haikyuu-section">
+  <style>
+    /* 主题部分容器样式 */
+    #haikyuu-section {
+      background-color: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    /* 标题样式 */
+    #haikyuu-section h2 {
+      color: #ff6600;
+      font-size: 28px;
+    }
+    /* 角色卡片容器样式 */
+   .character-cards {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    /* 角色卡片样式 */
+   .character-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 200px;
+      padding: 15px;
+      cursor: pointer;
+    }
+    /* 角色图片样式 */
+   .character-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    /* 角色名字样式 */
+   .character-card h3 {
+      margin: 10px 0;
+      color: #333;
+    }
+    /* 角色描述样式 */
+   .character-card p {
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+  <h2>《排球少年》角色展示</h2>
+  <div class="character-cards">
+    <!-- 日向翔阳卡片 -->
+    <div class="character-card" data-character="hinata">
+      <img src="照片\日向翔阳.png" alt="日向翔阳">
+      <h3>日向翔阳</h3>
+      <p>拥有超强跳跃力和热情的排球少年。</p>
+    </div>
+    <!-- 影山飞雄卡片 -->
+    <div class="character-card" data-character="kageyama">
+      <img src="照片\影山飞雄.jpg" alt="影山飞雄">
+      <h3>影山飞雄</h3>
+      <p>天才二传手，技术高超但性格傲娇。</p>
+    </div>
+    <!-- 孤爪研磨卡片 -->
+    <div class="character-card" data-character="tsukishima">
+      <img src="照片\孤爪.jpeg" alt="孤爪研磨">
+      <h3>孤爪研磨</h3>
+      <p>有着冷静头脑和出色拦网技术的选手。</p>
+    </div>
+  </div>
+  <div id="character-details">
+    <h3 id="character-name"></h3>
+    <p id="character-description"></p>
+  </div>
+  <script>
+    // 定义角色数据对象，方便管理和扩展
+    const characters = {
+      hinata: {
+        name: '日向翔阳',
+        description: '拥有超强跳跃力和热情的排球少年，他凭借着不服输的精神在排球场上不断成长。'
+      },
+      kageyama: {
+        name: '影山飞雄',
+        description: '天才二传手，技术高超但性格傲娇，在与队友的磨合中逐渐学会团队协作。'
+      },
+      tsukishima: {
+        name: '孤爪研磨',
+        description: '有着冷静头脑和出色拦网技术的选手，常常以毒舌的方式激励队友。'
+      }
+    };
+
+    // 获取 DOM 元素
+    const characterCardsContainer = document.querySelector('.character-cards');
+    const characterDetails = document.getElementById('character-details');
+    const characterName = document.getElementById('character-name');
+    const characterDescription = document.getElementById('character-description');
+    const characterCards = Array.from(characterCardsContainer.querySelectorAll('.character-card'));
+
+    // 显示角色详情并添加淡入效果
+    const showCharacterDetails = (name, description) => {
+      characterDetails.style.opacity = 0;
+      characterName.textContent = name;
+      characterDescription.textContent = description;
+      setTimeout(() => {
+        characterDetails.style.opacity = 1;
+      }, 300);
+    };
+
+    // 处理角色卡片点击事件
+    const handleCardClick = (event) => {
+      const card = event.target.closest('.character-card');
+      if (card) {
+        const characterKey = card.dataset.character;
+        const { name, description } = characters[characterKey];
+        showCharacterDetails(name, description);
+        // 移除所有卡片的活动类
+        characterCards.forEach(c => c.classList.remove('active'));
+        // 添加活动类到当前点击的卡片
+        card.classList.add('active');
+      }
+    };
+
+    // 处理键盘导航
+    const handleKeyDown = (event) => {
+      const activeIndex = characterCards.findIndex(c => c.classList.contains('active'));
+      let newIndex = activeIndex;
+      if (event.key === 'ArrowRight') {
+        newIndex = (activeIndex + 1) % characterCards.length;
+      } else if (event.key === 'ArrowLeft') {
+        newIndex = (activeIndex - 1 + characterCards.length) % characterCards.length;
+      }
+      if (newIndex !== activeIndex) {
+        const newCard = characterCards[newIndex];
+        const characterKey = newCard.dataset.character;
+        const { name, description } = characters[characterKey];
+        showCharacterDetails(name, description);
+        // 移除所有卡片的活动类
+        characterCards.forEach(c => c.classList.remove('active'));
+        // 添加活动类到新的卡片
+        newCard.classList.add('active');
+      }
+    };
+
+    // 为角色卡片容器添加事件委托
+    characterCardsContainer.addEventListener('click', handleCardClick);
+
+    // 为文档添加键盘事件监听器
+    document.addEventListener('keydown', handleKeyDown);
+
+    // 页面加载时显示第一个角色的详情
+    window.addEventListener('load', () => {
+      const firstCard = characterCardsContainer.querySelector('.character-card');
+      if (firstCard) {
+        firstCard.click();
+      }
+    });
+
+    // 处理图片加载失败的情况
+    const characterImages = document.querySelectorAll('.character-card img');
+    characterImages.forEach(img => {
+      img.addEventListener('error', () => {
+        img.src = 'default-image.png'; // 替换为默认图片的路径
+        img.alt = '默认图片';
+      });
+    });
+
+    // 添加鼠标悬停效果
+    characterCards.forEach(card => {
+      card.addEventListener('mouseenter', () => {
+        card.style.transform = 'scale(1.05)';
+      });
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'scale(1)';
+      });
+    });
+  </script>
+  // 添加 CSS 样式来美化活动卡片和过渡效果
+  <style>
+    .character-card.active {
+          border: 2px solid #ff6600;
+          box-shadow: 0 0 15px rgba(255, 102, 0, 0.5);
+        }
+    .character-card {
+          transition: transform 0.3s ease;
+        }
+    .character-details {
+          transition: opacity 0.3s ease;
+        }
+  </style>
+</section>
+</body>
+</html>
+
